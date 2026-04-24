@@ -9,7 +9,7 @@ public class CreateActivity
 {
     public class Command : IRequest<string>
     {
-        public Activity Activity { get; set; }
+        public required Activity Activity { get; set; }
     }
 
     public class Handler(AppDbContext context) : IRequestHandler<Command, string>

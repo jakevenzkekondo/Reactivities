@@ -9,7 +9,7 @@ public class DeleteActivity
 {
     public class Command : IRequest
     {
-        public string Id { get; set; }
+        public required string Id { get; set; }
     }
 
     public class Handler(AppDbContext context) : IRequestHandler<Command>
