@@ -40,6 +40,9 @@ export default function NavBar() {
               <ButtonLink to="/counter">
                 Counter
               </ButtonLink>
+              <ButtonLink to="/errors">
+                Errors
+              </ButtonLink>
             </Box>
             <Button>
                 User menu
