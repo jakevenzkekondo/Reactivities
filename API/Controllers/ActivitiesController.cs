@@ -11,7 +11,7 @@ namespace API.Controllers;
 
 public class ActivitiesController : BaseApiController
 {
-    [AllowAnonymous]
+    //[AllowAnonymous]
     [HttpGet]
     public async Task<ActionResult<List<Activity>>> GetActivities()
     {

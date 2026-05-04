@@ -8,10 +8,13 @@ import { NavLink } from 'react-router';
 import ButtonLink from '../shared/components/ButtonLink';
 import { useStore } from '../../lib/hooks/useStore';
 import { Observer } from 'mobx-react-lite';
+import { useAccount } from '../../lib/hooks/useAccount';
+import UserMenu from './UserMenu';
 
 
 export default function NavBar() {
   const {uiStore} = useStore();
+  const {currentUser} = useAccount();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -34,9 +37,6 @@ export default function NavBar() {
               <ButtonLink to="/activities">
                 Activities
               </ButtonLink>
-              <ButtonLink to="/createActivity">
-                Create Activity
-              </ButtonLink>
               <ButtonLink to="/counter">
                 Counter
               </ButtonLink>
@@ -44,9 +44,16 @@ export default function NavBar() {
                 Errors
               </ButtonLink>
             </Box>
-            <Button>
-                User menu
-            </Button>
+            <Box sx={{display:'flex', alignItems: 'center'}}>
+              {currentUser ? (
+                <UserMenu/>
+              ) : (
+                <>
+                  <ButtonLink to="/login">Login</ButtonLink>
+                  <ButtonLink to="/register">Register</ButtonLink>
+                </>
+              )}
+            </Box>
           </Toolbar>
         </Container>
         <Observer>
